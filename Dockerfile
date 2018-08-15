@@ -7,4 +7,7 @@ RUN apt-get update \
 	&& apt-get clean \
 	&& rm --recursive --force /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENTRYPOINT pandoc
+WORKDIR /data
+VOLUME ["/data"]
+
+ENTRYPOINT ["pandoc"]
